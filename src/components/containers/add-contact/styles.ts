@@ -25,7 +25,3 @@ export const Titulo = styled.h1`
   padding-top: 48px;
   color: ${variaveis.white};
 `
-export const Rinku = styled.a`
-  color: ${variaveis.white};
-  text-decoration: none;
-`

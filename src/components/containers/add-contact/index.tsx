@@ -1,20 +1,27 @@
 import { FormEvent, useState } from 'react'
 import { Botao } from '../../../styles'
-import { Container, Rinku, Titulo } from './styles'
+import { Container, Titulo } from './styles'
 import { useDispatch } from 'react-redux'
 import Contato from '../../../models/Contato'
 import { cadastrar } from '../../../store/reducers/contatos'
+import { useNavigate } from 'react-router-dom'
 
 const Form = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [nome, setNome] = useState('')
   const [telefone, setTelefone] = useState('')
   const [email, setEmail] = useState('')
 
   const newContact = (evento: FormEvent) => {
     evento.preventDefault()
-    const toAdd = new Contato(nome, 2222222, email, 9)
-    dispatch(cadastrar(toAdd))
+    const contato = new Contato(nome, 2222222, email, 9)
+    dispatch(cadastrar(contato))
+    navigate('/')
+  }
+
+  const handleBack = () => {
+    navigate('/')
   }
 
   return (
@@ -37,8 +44,8 @@ const Form = () => {
           placeholder="E-mail"
         />
         <Botao type="submit">Salvar</Botao>
-        <Botao>
-          <Rinku href="/">Voltar</Rinku>
+        <Botao type="button" onClick={handleBack}>
+          Voltar
         </Botao>
       </form>
     </Container>

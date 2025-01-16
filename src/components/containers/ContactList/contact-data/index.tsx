@@ -48,8 +48,6 @@ const Data = ({ nome: defaultName, telefone, email, id }: Props) => {
           >
             Salvar
           </BotaoSave>
-
-          {/* cancel button not working */}
           <BotaoCancel type="button" onClick={cancelEdit}>
             Cancelar
           </BotaoCancel>
